@@ -11,6 +11,10 @@ const icons = {
         icon: "/assets/icons/phone.svg",
         alt: "phone",
     },
+    calendar: {
+        icon: "/assets/icons/calendar.svg",
+        alt: "calendar",
+    },
 }
 
 export default icons;
