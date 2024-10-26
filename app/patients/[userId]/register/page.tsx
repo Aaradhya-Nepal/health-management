@@ -4,7 +4,14 @@ import Image from "next/image";
 import RegisterForm from "@/components/app/patients/forms/RegisterForm";
 import {getUser} from "@/lib/actions/patient.actions";
 
-const Register = async ({params: {userId}}: SearchParamProps) => {
+interface PageProps {
+    params: {
+        userId: string
+    }
+}
+
+const Register = async ({params}: PageProps) => {
+    const userId = (await params).userId
     const user = await getUser(userId);
     return (
         <div className="flex h-screen max-h-screen">

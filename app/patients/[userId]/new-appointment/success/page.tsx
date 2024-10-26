@@ -8,11 +8,18 @@ import {formatDateTime} from "@/lib/utils";
 import source from "@/constants/source";
 import icons from "@/constants/icons";
 
-const RequestSuccess = async ({
-                                  searchParams,
-                                  params: {userId},
-                              }: SearchParamProps) => {
-    const appointmentId = (searchParams?.appointmentId as string) || "";
+interface PageProps {
+    params: {
+        userId: string
+    }
+    searchParams: {
+        appointmentId?: string
+    }
+}
+
+const RequestSuccess = async ({searchParams, params}: PageProps) => {
+    const userId = (await params).userId
+    const appointmentId = (await searchParams).appointmentId || ""
     const appointment = await getAppointment(appointmentId);
 
     const doctor = Doctors.find(
