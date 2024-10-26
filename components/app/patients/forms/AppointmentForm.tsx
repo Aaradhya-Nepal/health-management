@@ -57,9 +57,6 @@ const AppointmentForm = ({
         }
 
         try {
-            console.log("Type", type)
-            console.log("PatientId", patientId)
-
             if (type === "create" && patientId) {
                 const appointmentData = {
                     userId,
