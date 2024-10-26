@@ -1,8 +1,6 @@
 import React from 'react';
 import source from "@/constants/source";
 import Image from "next/image";
-import Link from "next/link";
-import routes from "@/constants/routes";
 import RegisterForm from "@/components/app/patients/forms/RegisterForm";
 import {getUser} from "@/lib/actions/patient.actions";
 
@@ -10,8 +8,8 @@ const Register = async ({params: {userId}}: SearchParamProps) => {
     const user = await getUser(userId);
     return (
         <div className="flex h-screen max-h-screen">
-            <div className="remove-scrollbar container my-auto">
-                <div className="sub-container max-w-[496px]">
+            <div className="remove-scrollbar container">
+                <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
                     <Image
                         src={source.patient}
                         width={1000}
@@ -20,13 +18,8 @@ const Register = async ({params: {userId}}: SearchParamProps) => {
                         className="mb-12 h-10 w-fit"
                     />
                     <RegisterForm user={user}/>
-                    <div className="text-14-regular mt-20 flex justify-between">
-                        <div className="justify-end text-dark-600 xl:text-left">
-                            © 2021 Patient Management System. All rights reserved.
-                        </div>
-                        <Link href={routes.admin} className="text-green-500">
-                            Admin
-                        </Link>
+                    <div className="copyright py-12">
+                        © 2021 Patient Management System. All rights reserved.
                     </div>
                 </div>
             </div>
