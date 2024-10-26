@@ -1,6 +1,7 @@
 import {E164Number} from "libphonenumber-js/core";
 import Image from "next/image";
-import ReactDatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {Control} from "react-hook-form";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
@@ -110,17 +111,13 @@ const RenderInput = ({field, props}: { field: any; props: CustomProps }) => {
                         className="ml-2"
                     />
                     <FormControl>
-                        <ReactDatePicker
-                            showTimeSelect={props.showTimeSelect ?? false}
+                        <DatePicker
                             selected={field.value}
-                            onChange={(date: any) => field.onChange(date)}
+                            onSelect={(date: any) => field.onChange(date)}
+                            dateFormat={props.dateFormat ?? 'MM/dd/yyyy'}
+                            showTimeSelect={props.showTimeSelect ?? false}
                             timeInputLabel="Time:"
-                            dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
                             wrapperClassName="date-picker"
-                            minDate={props.minDate}
-                            maxDate={props.maxDate}
-                            selectsMultiple={props.selectsMultiple}
-                            showMonthYearDropdown={true}
                         />
                     </FormControl>
                 </div>
