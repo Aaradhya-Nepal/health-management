@@ -7,6 +7,7 @@ const config = {
     APPOINTMENT_COLLECTION_ID: process.env.APPOINTMENT_COLLECTION_ID,
     BUCKET_ID: process.env.NEXT_PUBLIC_BUCKET_ID,
     ENDPOINT: process.env.NEXT_PUBLIC_ENDPOINT,
+    ADMIN_PASSKEY: process.env.NEXT_PUBLIC_ADMIN_PASSKEY,
 };
 
 export default config;

@@ -3,11 +3,20 @@ import PatientForm from "@/components/app/patients/forms/PatientForm";
 import Link from "next/link";
 import routes from "@/constants/routes";
 import source from "@/constants/source";
+import PasskeyModal from "@/components/app/modal/PasskeyModal";
 
-export default function Home() {
+interface PageProps {
+    searchParams: {
+        admin?: string
+    }
+}
+
+export default async function Home({searchParams}: PageProps) {
+    const isAdmin = (await searchParams).admin === "true";
     return (
         <div className="flex h-screen max-h-screen">
-            <div className="remove-scrollbar container my-auto">
+            {isAdmin && <PasskeyModal/>}
+            <section className="remove-scrollbar container my-auto">
                 <div className="sub-container max-w-[496px]">
                     <Image
                         src={source.patient}
@@ -26,7 +35,7 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </section>
             <Image
                 src={source.onboardingImage}
                 height={1000}

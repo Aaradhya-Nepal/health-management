@@ -15,6 +15,22 @@ const icons = {
         icon: "/assets/icons/calendar.svg",
         alt: "calendar",
     },
+    close: {
+        icon: "/assets/icons/close.svg",
+        alt: "close",
+    },
+    appointment: {
+        icon: "/assets/icons/appointments.svg",
+        alt: "appointment",
+    },
+    pending: {
+        icon: "/assets/icons/pending.svg",
+        alt: "pending",
+    },
+    cancelled: {
+        icon: "/assets/icons/cancelled.svg",
+        alt: "cancelled",
+    },
 }
 
 export default icons;
