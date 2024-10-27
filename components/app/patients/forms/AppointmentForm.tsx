@@ -80,27 +80,26 @@ const AppointmentForm = ({
                     router.push(routes.newAppointmentSuccess.replace(":userId", userId).replace(":appointmentId", newAppointment.$id));
                 }
             } else {
-                const appointmentToUpdate = {
-                    userId,
-                    appointmentId: appointment.$id!,
-                    appointment: {
-                        primaryPhysician: values.primaryPhysician,
-                        schedule: new Date(values.schedule),
-                        status: status as Status,
-                        cancellationReason: values.cancellationReason,
-                    },
-                    type,
-                };
+                if (appointment) {
+                    const appointmentToUpdate = {
+                        userId,
+                        appointmentId: appointment.$id!,
+                        appointment: {
+                            primaryPhysician: values.primaryPhysician,
+                            schedule: new Date(values.schedule),
+                            status: status as Status,
+                            cancellationReason: values.cancellationReason,
+                        },
+                        type,
+                    };
 
-                const updatedAppointment = await updateAppointment(appointmentToUpdate);
-
-                if (updatedAppointment) {
-                    setOpen(false);
-                    form.reset();
+                    const updatedAppointment = await updateAppointment(appointmentToUpdate);
+                    if (updatedAppointment) {
+                        setOpen(false);
+                        form.reset();
+                    }
                 }
             }
-
-
         } catch (error) {
             console.log(error);
         }
